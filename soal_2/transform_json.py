@@ -1,6 +1,7 @@
 import json, math
 import collections, functools, operator
 import regex as re
+import pandas as pd
 
 input_file = input("Enter your path json file: ")
 f = open(input_file)
@@ -79,4 +80,6 @@ for dict_ in json_data:
 result = dict(functools.reduce(operator.add,
          map(collections.Counter, li)))
 
-print(result)
+df = pd.DataFrame({'Jenis Ikan':result.keys(),
+              'Jumlah':result.values()})
+print(df)
