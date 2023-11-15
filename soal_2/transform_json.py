@@ -17,13 +17,13 @@ def cleaning(text:str):
     return text_clean
 
 def typo_correction(text:str):
-    text_clean_1 = re.sub(string=text, pattern = 'mu\w+',
+    text_clean_1 = re.sub(string=text, pattern = 'jaer|mu\w+',
                             repl = 'mujair')
-    text_clean_2 = re.sub(string=text_clean_1, pattern = 'ton\w+|tng\w+|tingkol',
+    text_clean_2 = re.sub(string=text_clean_1, pattern = 'ton\w+|tng\w+|tingkol|eton\w+',
                             repl = 'tongkol')
     text_clean_3 = re.sub(string=text_clean_2, pattern = 'ni\w+',
                             repl = 'nila')
-    text_clean = re.sub(string=text_clean_3, pattern = 'kra\w+|kera\w+',
+    text_clean = re.sub(string=text_clean_3, pattern = 'kra\w+|ker\w+',
                             repl = 'kerapu')    
     return text_clean                        
 
