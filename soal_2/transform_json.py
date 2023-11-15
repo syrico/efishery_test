@@ -2,9 +2,11 @@ import json, math
 import collections, functools, operator
 import regex as re
 import pandas as pd
+import sys
 
-input_file = input("Enter your path json file: ")
-f = open(input_file)
+path_file = sys.argv[1]
+
+f = open(path_file)
 
 json_data = json.load(f)
 
