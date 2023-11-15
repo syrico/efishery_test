@@ -27,7 +27,7 @@ dag = DAG('daily_accumulate_fact',
 t_start = DummyOperator(task_id='start', dag=dag)
 
 t_insert_into_tabel_fact = PostgresOperator(task_id = 'insert_into_fact_tbl', 
-                                    sql = open('/home/syrico/airflow/sql/insert_into_table_fact_order.sql').read(),
+                                    sql = open('/home/syrico/airflow/efishery/sql/daily_upsert_into_table_fact_order.sql').read(),
                                     postgres_conn_id="postgres_local",
                                     dag=dag)                              
 
