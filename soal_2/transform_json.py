@@ -1,7 +1,9 @@
 import json, math
-import collections, functools, operator, regex as re
+import collections, functools, operator
+import regex as re
 
-f = open('/home/syrico/airflow/soal-2.json')
+input_file = input("Enter your path json file: ")
+f = open(input_file)
 
 json_data = json.load(f)
 
