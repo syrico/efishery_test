@@ -50,7 +50,7 @@ SELECT
     EXTRACT(DOW FROM d)::INTEGER IN (0, 6) AS is_weekend
 FROM generate_series('2019-01-01'::DATE, '2023-12-31'::DATE, '1 day'::INTERVAL) d;
 
-CREATE TABLE dwh_efishery.fact_order_accumulating (
+CREATE TABLE if not exists dwh_efishery.fact_order_accumulating (
 	id text NOT NULL,
 	order_date text NULL,
 	inv_date text NULL,

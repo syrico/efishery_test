@@ -1,6 +1,6 @@
 SET time zone 'Asia/Jakarta' ;
 
-create view efisheri.v_fact_order_accumulating as 
+create view if not exists efisheri.v_fact_order_accumulating as 
 select 
 concat(o.customer_id,'-',o.order_number) id,
 max(to_char(o."date",'yyyymmdd')) order_date, 
