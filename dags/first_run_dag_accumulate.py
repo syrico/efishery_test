@@ -27,22 +27,22 @@ dag = DAG('First_run_accumate',
 t_start = DummyOperator(task_id='start', dag=dag)
 
 t_create_table_dwh = PostgresOperator(task_id = 'create_table_dwh', 
-                                    sql = open('/home/syrico/airflow/sql/first_run_create_table_dwh.sql').read(),
+                                    sql = open('/home/syrico/airflow/efishery/sql/first_run_create_table_dwh.sql').read(),
                                     postgres_conn_id="postgres_local",
                                     dag=dag)
 
 t_create_view = PostgresOperator(task_id = 'create_view_acumulative', 
-                                    sql = open('/home/syrico/airflow/sql/first_run_v_fact_order_accumulating.sql').read(),
+                                    sql = open('/home/syrico/airflow/efishery/sql/first_run_v_fact_order_accumulating.sql').read(),
                                     postgres_conn_id="postgres_local",
                                     dag=dag)
 
 t_create_mview = PostgresOperator(task_id = 'create_mview_acumulative', 
-                                    sql = open('/home/syrico/airflow/sql/first_run_mv_fact_order_accumulating.sql').read(),
+                                    sql = open('/home/syrico/airflow/efishery/sql/first_run_mv_fact_order_accumulating.sql').read(),
                                     postgres_conn_id="postgres_local",
                                     dag=dag)                                    
 
 t_insert_into_tabel_fact = PostgresOperator(task_id = 'insert_into_fact_tbl', 
-                                    sql = open('/home/syrico/airflow/sql/first_run_insert_into_table_fact_order.sql').read(),
+                                    sql = open('/home/syrico/airflow/efishery/sql/first_run_insert_into_table_fact_order.sql').read(),
                                     postgres_conn_id="postgres_local",
                                     dag=dag)                              
 

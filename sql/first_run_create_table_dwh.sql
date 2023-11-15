@@ -19,7 +19,7 @@ CREATE TABLE if not exists  dwh_efishery.dimdates (
     is_weekend BOOLEAN
 );
 
-truncate table dwh_efishery.dimdates ;
+truncate table dwh_efishery.dimdates cascade ;
 
 INSERT INTO dwh_efishery.dimdates (
 dateid,    
