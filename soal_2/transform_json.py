@@ -17,14 +17,22 @@ def cleaning(text:str):
     return text_clean
 
 def typo_correction(text:str):
-    text_clean_1 = re.sub(string=text, pattern = 'jaer|mu\w+',
+    text_clean_1 = re.sub(string=text, pattern = r'jaer|mu\D+',
                             repl = 'mujair')
-    text_clean_2 = re.sub(string=text_clean_1, pattern = 'ton\w+|tng\w+|tingkol|eton\w+',
+    text_clean_2 = re.sub(string=text_clean_1, pattern = r'ton\w+|tng\w+|tingkol|eton\w+',
                             repl = 'tongkol')
-    text_clean_3 = re.sub(string=text_clean_2, pattern = 'ni\w+',
+    text_clean_3 = re.sub(string=text_clean_2, pattern = r'ni\D+',
                             repl = 'nila')
-    text_clean = re.sub(string=text_clean_3, pattern = 'kra\w+|ker\w+',
+    text_clean_4 = re.sub(string=text_clean_3, pattern = r'sakera\w+|kra\w+|ker\D+',
                             repl = 'kerapu')    
+    text_clean_5 = re.sub(string=text_clean_4, pattern = r'ke\w+|le\D+',
+                            repl = 'lele')  
+    text_clean_6 = re.sub(string=text_clean_5, pattern = r'gura\D+',
+                            repl = 'gurame')  
+    text_clean_7 = re.sub(string=text_clean_6, pattern = r'mas|eem\w+',
+                            repl = 'emas')      
+    text_clean = re.sub(string=text_clean_7, pattern = r'dll|gore\D+|soto\D+|pin|kepala|sate|usus|nasi|uduk|tawr|man|pecel',
+                            repl = '')  
     return text_clean                        
 
 def parsing_values(text):
@@ -84,4 +92,5 @@ result = dict(functools.reduce(operator.add,
 
 df = pd.DataFrame({'Jenis Ikan':result.keys(),
               'Jumlah':result.values()})
-print(df)
+df.drop(df[(df['Jenis Ikan']=='')].index, inplace=True)
+print(df.sort_values(by='Jumlah', ascending=False))
