@@ -24,7 +24,8 @@ Only data not completed was updated
     ├── n.ipynb
     ├── README.MD
     ├── soal_2
-    │   └── transform_json.py
+    │   ├── transform_json.py
+    │   └── run.sh
     └── sql
         ├── daily_upsert_into_table_fact_order.sql
         ├── first_run_create_table_dwh.sql
@@ -52,3 +53,5 @@ will be processed as:
 `values_amount_fish` = [3,3,3]
 
 After processing, we take out the `values_name_fish` if not contain word name of fish
+
+![Alt text](image-6.png)
