@@ -4,21 +4,18 @@
 
 Given table from production as ![Alt text](image.png) that want to be analyzed, so we were created datawarehouse that get data from production daily at 07.00 WIB. We need accumulation of transaction that aggregation by date, customer, order, payment and invoice. 
 ![Alt text](image-1.png). 
+
 On table fact_order_accumulating we add id as primary key that usefull for upsert the data, because **just only data not completed (no payment and no invoice)from production that we insert into datawarehouse**.
 We use Apache Airflow to schedule and Orchastre the pipeline, we provide 2 DAGS, for first run that get all data from production to datawarehouse and another is to get not completed data(no payment, no invoice) daily at 07.00 WIB
 ![Alt text](image-2.png)
 Only data not completed was updated 
-![Alt text](image-4.png)
+![Alt text](image-5.png)
 
 Directory Tree:
 
 ├── dags
 │   ├── daily_acummulate_dag.py
 │   ├── first_run_dag_accumulate.py
-│   └── __pycache__
-│       ├── cummulate_dag.cpython-38.pyc
-│       ├── daily_acummulate_dag.cpython-38.pyc
-│       └── first_run_dag_accumulate.cpython-38.pyc
 ├── image-1.png
 ├── image-2.png
 ├── image-3.png
