@@ -37,17 +37,18 @@ Transforming JSON file contained `keys` and `values`, each dictionary has 2 `val
 We assume if length of `values` from fish name is equal with leght of `values` from amount of fish will be processed, and if length is not equal, `values` of fish amount is append as much as `values` of fish name. 
 
 Example :
-values_name_fish = ['lele', 'bawal', 'nila']
-values_amount_fish = [2,2,2]
 
-example data above will be processed, and if values_name_fish and values_amount_fish not equal, we have to processed and append the values length is equal with values_name_fish
+`values_name_fish` = ['lele', 'bawal', 'nila'] <br> 
+`values_amount_fish` = [2,2,2]
 
-values_name_fish = ['lele', 'bawal', 'nila']
-values_amount_fish = [3]
+example data above will be processed, and if `values_name_fish` and `values_amount_fish` not equal, we have to processed and append the values length is equal with values_name_fish
+
+`values_name_fish` = ['lele', 'bawal', 'nila']<br> 
+`values_amount_fish` = [3]
 
 will be processed as:
 
-values_name_fish = ['lele', 'bawal', 'nila']
-values_amount_fish = [3,3,3]
+`values_name_fish` = ['lele', 'bawal', 'nila']<br> 
+`values_amount_fish` = [3,3,3]
 
-After processing, we take out the values_name_fish if not contain word name of fish
+After processing, we take out the `values_name_fish` if not contain word name of fish
